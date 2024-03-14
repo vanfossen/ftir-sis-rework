@@ -16,17 +16,18 @@ function NavBar() {
           <span className="text-purple-500">S</span>
         </a>
       </div>
+
       <div className="flex">
         {navItems.map((item, i) => (
-          <div key={i}>
+          <div key={i} className="relative group">
             <ul>
-              <li className="p-2 cursor-default text-white hover:text-orange-500 hover:bg-[#1e293b] transition-all">
+              <li className="p-2 cursor-default text-white group-hover:text-orange-500 group-hover:bg-[#1e293b] transition-all">
                 {item.label}
               </li>
             </ul>
-            <ul className="bg-white text-center">
-              {item.submenu.map((sub, j) => {
-                return (
+            {item.submenu && (
+              <ul className="absolute hidden w-full bg-white text-center transition-all group-hover:block">
+                {item.submenu.map((sub, j) => (
                   <li key={j}>
                     <a
                       href={sub.url}
@@ -36,9 +37,9 @@ function NavBar() {
                       {sub.label}
                     </a>
                   </li>
-                );
-              })}
-            </ul>
+                ))}
+              </ul>
+            )}
           </div>
         ))}
       </div>
