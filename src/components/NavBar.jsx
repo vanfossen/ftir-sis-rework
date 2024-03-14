@@ -2,7 +2,7 @@ import { navItems } from "../constants";
 
 function NavBar() {
   return (
-    <nav className="flex justify-evenly p-2 bg-[#0f172a]">
+    <nav className="flex justify-evenly bg-[#0f172a] p-2">
       <div className="flex items-center">
         <img src="/vite.svg" alt="test logo" />
         <a>
@@ -19,9 +19,9 @@ function NavBar() {
 
       <div className="flex">
         {navItems.map((item, i) => (
-          <div key={i} className="relative group">
+          <div key={i} className="group relative">
             <ul>
-              <li className="p-2 cursor-default text-white group-hover:text-orange-500 group-hover:bg-[#1e293b] transition-all">
+              <li className="cursor-default p-2 text-white transition-all group-hover:bg-[#1e293b] group-hover:text-orange-500">
                 {item.label}
               </li>
             </ul>
@@ -32,7 +32,7 @@ function NavBar() {
                     <a
                       href={sub.url}
                       target="_blank"
-                      className="hover:bg-slate-300 flex justify-center grow"
+                      className="flex grow justify-center hover:bg-slate-300"
                     >
                       {sub.label}
                     </a>

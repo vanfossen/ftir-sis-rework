@@ -2,7 +2,7 @@ import NavBar from "./components/NavBar.jsx";
 
 function App() {
   return (
-    <div className="w-screen h-screen bg-pink-500">
+    <div className="h-screen w-screen bg-pink-500">
       <NavBar />
     </div>
   );
