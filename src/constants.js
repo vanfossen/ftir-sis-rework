@@ -1,39 +1,64 @@
 export const navItems = [
   {
-    label: "Home",
+    label: "File",
     submenu: [
       {
-        label: "a",
+        label: "Open",
+        url: "https://www.example.com/",
+      },
+      {
+        label: "Save",
         url: "https://www.example.com/",
       },
     ],
   },
   {
-    label: "Shop",
+    label: "Window",
     submenu: [
       {
-        label: "e",
+        label: "Experimental Setup",
         url: "https://www.example.com/",
       },
       {
-        label: "i",
+        label: "Instrument",
+        url: "https://www.example.com/",
+      },
+      {
+        label: "Spectra",
+        url: "https://www.example.com/",
+      },
+      {
+        label: "Find Peaks",
         url: "https://www.example.com/",
       },
     ],
   },
   {
-    label: "About Me",
+    label: "Measure",
     submenu: [
       {
-        label: "o",
+        label: "Collect Background",
         url: "https://www.example.com/",
       },
       {
-        label: "u",
+        label: "Collect Sample",
         url: "https://www.example.com/",
       },
       {
-        label: "y",
+        label: "Cancel Scan",
+        url: "https://www.example.com/",
+      },
+    ],
+  },
+  {
+    label: "Help",
+    submenu: [
+      {
+        label: "Tutorial",
+        url: "https://www.example.com/",
+      },
+      {
+        label: "Landing Page",
         url: "https://www.example.com/",
       },
     ],
