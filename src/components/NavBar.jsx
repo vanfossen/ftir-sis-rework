@@ -47,7 +47,7 @@ function NavBar() {
         </nav>
 
         {/* mobile view of nav menus (hamburger) */}
-        <nav className="xl:hidden">
+        <nav className="flex xl:hidden">
           <button
             className={`rounded hover:bg-[#374151] ${menu ? "bg-[#374151]" : ""}`}
             onClick={handleMenuClick}
