@@ -25,16 +25,14 @@ function NavItem({ item, isActive, onClick }) {
 
       {/* submenu */}
       {isActive && (
-        <div className="left-0 mt-1 w-full rounded bg-[#1e293b] p-1 sm:static xl:absolute">
+        <div className="left-0 mt-1 flex w-full flex-col rounded bg-[#1e293b] p-1 sm:static xl:absolute">
           {item.submenu.map((subItem, index) => (
-            <a
+            <button
               key={index}
-              href={subItem.url}
-              target="_blank"
-              className="m-1 block rounded p-2 text-white hover:bg-[#374151] hover:text-orange-500"
+              className="m-1 block rounded p-2 text-start text-white hover:bg-[#374151] hover:text-orange-500"
             >
               {subItem.label}
-            </a>
+            </button>
           ))}
         </div>
       )}
