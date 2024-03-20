@@ -2,9 +2,11 @@ import NavBar from "../components/nav/NavBar";
 
 function ExperimentalSetup() {
   return (
-    <div className="h-screen w-screen bg-red-500">
+    <div className="flex min-h-screen flex-col overflow-hidden bg-red-500">
       <NavBar />
-      <p>Experimental Setup</p>
+      <div className="flex flex-grow items-center justify-center">
+        <p>Homepage</p>
+      </div>
     </div>
   );
 }

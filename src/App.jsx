@@ -2,9 +2,11 @@ import NavBar from "./components/nav/NavBar";
 
 function App() {
   return (
-    <div className="h-screen w-screen bg-pink-500">
+    <div className="flex min-h-screen flex-col overflow-hidden bg-pink-500">
       <NavBar />
-      <p>Homepage</p>
+      <div className="flex flex-grow items-center justify-center">
+        <p>Homepage</p>
+      </div>
     </div>
   );
 }

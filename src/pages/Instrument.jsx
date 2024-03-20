@@ -2,10 +2,11 @@ import NavBar from "../components/nav/NavBar";
 
 function Instrument() {
   return (
-    <div className="h-screen w-screen bg-green-500">
+    <div className="flex min-h-screen flex-col overflow-hidden bg-green-500">
       <NavBar />
-
-      <p>Instrument</p>
+      <div className="flex flex-grow items-center justify-center">
+        <p>Instrument</p>
+      </div>
     </div>
   );
 }

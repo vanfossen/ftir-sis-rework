@@ -2,9 +2,11 @@ import NavBar from "../components/nav/NavBar";
 
 function Spectra() {
   return (
-    <div className="h-screen w-screen bg-blue-500">
+    <div className="flex min-h-screen flex-col overflow-hidden bg-blue-500">
       <NavBar />
-      <p>Spectra</p>
+      <div className="flex flex-grow items-center justify-center">
+        <p>Spectra</p>
+      </div>
     </div>
   );
 }
