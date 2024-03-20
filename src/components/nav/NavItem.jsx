@@ -36,12 +36,6 @@ function NavItem({ item, isActive, onClick }) {
             >
               {subItem.label}
             </Link>
-            // <button
-            //   key={index}
-            //   className="m-1 block rounded p-2 text-start text-white hover:bg-[#374151] hover:text-orange-500"
-            // >
-            //   {subItem.label}
-            // </button>
           ))}
         </div>
       )}
