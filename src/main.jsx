@@ -9,21 +9,24 @@ import Instrument from "./pages/Instrument.jsx";
 import Spectra from "./pages/Spectra.jsx";
 
 const router = createBrowserRouter([
-  { path: "/", element: <App />, errorElement: <NotFound /> },
   {
-    path: "/setup",
-    element: <ExperimentalSetup />,
+    path: "/",
+    element: <App />,
     errorElement: <NotFound />,
-  },
-  {
-    path: "/instrument",
-    element: <Instrument />,
-    errorElement: <NotFound />,
-  },
-  {
-    path: "/spectra",
-    element: <Spectra />,
-    errorElement: <NotFound />,
+    children: [
+      {
+        path: "setup",
+        element: <ExperimentalSetup />,
+      },
+      {
+        path: "instrument",
+        element: <Instrument />,
+      },
+      {
+        path: "spectra",
+        element: <Spectra />,
+      },
+    ],
   },
 ]);
 

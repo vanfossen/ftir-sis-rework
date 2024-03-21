@@ -17,19 +17,19 @@ export const navItems = [
     submenu: [
       {
         label: "Experimental Setup",
-        route: "/setup",
+        route: "setup",
       },
       {
         label: "Instrument",
-        route: "/instrument",
+        route: "instrument",
       },
       {
         label: "Spectra",
-        route: "/spectra",
+        route: "spectra",
       },
       {
         label: "Find Peaks",
-        route: "https://www.example.com/",
+        url: "https://www.example.com/",
       },
     ],
   },
