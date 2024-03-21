@@ -2,10 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
-import ExperimentalSetup from "./pages/ExperimentalSetup.jsx";
-import NotFound from "./pages/NotFound.jsx";
 import "./index.css";
+import ExperimentalSetup from "./pages/ExperimentalSetup.jsx";
 import Instrument from "./pages/Instrument.jsx";
+import NotFound from "./pages/NotFound.jsx";
 import Spectra from "./pages/Spectra.jsx";
 
 const router = createBrowserRouter([

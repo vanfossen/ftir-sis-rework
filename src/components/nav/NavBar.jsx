@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { Menu } from "lucide-react";
+import { useState } from "react";
 import { navItems } from "../../constants";
 import NavItem from "./NavItem";
 import NavTitle from "./NavTitle";

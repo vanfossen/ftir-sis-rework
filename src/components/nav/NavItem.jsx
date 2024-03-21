@@ -1,6 +1,6 @@
-import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import PropTypes from "prop-types";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function NavItem({ item, isActive, onClick }) {
