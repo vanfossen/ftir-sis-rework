@@ -7,7 +7,7 @@ import NavTitle from "./NavTitle";
 function NavBar() {
   const [dropdown, setDropdown] = useState(null);
 
-  const handleDropdownClick = (index) => {
+  const handleDropdown = (index) => {
     setDropdown(index === dropdown ? null : index);
   };
 
@@ -30,7 +30,7 @@ function NavBar() {
               key={i}
               item={item}
               isActive={dropdown === i}
-              onClick={() => handleDropdownClick(i)}
+              handleDropdown={() => handleDropdown(i)}
             />
           ))}
         </nav>
@@ -54,7 +54,7 @@ function NavBar() {
               key={i}
               item={item}
               isActive={dropdown === i}
-              onClick={() => handleDropdownClick(i)}
+              handleDropdown={() => handleDropdown(i)}
             />
           ))}
         </div>

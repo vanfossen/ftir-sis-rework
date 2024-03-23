@@ -1,27 +1,15 @@
 import { ChevronDown } from "lucide-react";
 import PropTypes from "prop-types";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function NavItem({ item, isActive, onClick }) {
-  const [isSubOpen, setSubOpen] = useState(false);
-
-  const toggleSubMenu = () => {
-    setSubOpen(!isSubOpen);
-  };
-
-  const closeSubMenu = () => {
-    setSubOpen(false);
-  };
-
+function NavItem({ item, isActive, handleDropdown }) {
   return (
     <div className="relative px-5">
       {/* menu */}
       <button
         className={`m-1 flex items-center rounded p-2 hover:bg-[#374151] ${isActive ? "bg-[#1e293b] text-orange-500" : "text-white"} `}
         onClick={() => {
-          onClick();
-          toggleSubMenu();
+          handleDropdown();
         }}
       >
         {item.label}
@@ -37,8 +25,7 @@ function NavItem({ item, isActive, onClick }) {
               to={subItem.route ? subItem.route : subItem.url}
               target={subItem.url ? "_blank" : ""}
               onClick={() => {
-                onClick();
-                closeSubMenu();
+                handleDropdown();
               }}
               className="m-1 block rounded p-2 text-start text-white hover:bg-[#374151] hover:text-orange-500"
             >
@@ -55,7 +42,7 @@ function NavItem({ item, isActive, onClick }) {
 NavItem.propTypes = {
   item: PropTypes.object,
   isActive: PropTypes.bool,
-  onClick: PropTypes.func,
+  handleDropdown: PropTypes.func,
 };
 
 export default NavItem;
