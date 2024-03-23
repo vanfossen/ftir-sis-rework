@@ -21,7 +21,7 @@ function NavBar() {
     <header className="bg-[#0f172a] p-2">
       <div className="flex items-center justify-evenly">
         {/* logo and title */}
-        <NavTitle />
+        <NavTitle handleDropdown={() => handleDropdown(null)} />
 
         {/* desktop view of nav menus */}
         <nav className="hidden xl:flex">

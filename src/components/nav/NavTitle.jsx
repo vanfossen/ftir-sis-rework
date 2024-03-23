@@ -1,17 +1,27 @@
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-function NavTitle() {
+function NavTitle({ handleDropdown }) {
   return (
     <div className="flex items-center">
       <a
         href="https://www.rastonlab.org"
         target="_blank"
+        onClick={() => {
+          handleDropdown(null);
+        }}
         className="mx-4 rounded p-1 hover:bg-gray-600"
       >
         <img src="/vite.svg" alt="Vite Logo" />
       </a>
 
-      <Link to="/" className="rounded p-1 text-3xl hover:bg-[#374151]">
+      <Link
+        to="/"
+        onClick={() => {
+          handleDropdown(null);
+        }}
+        className="rounded p-1 text-3xl hover:bg-[#374151]"
+      >
         <span className="text-red-500">F</span>
         <span className="text-orange-500">T</span>
         <span className="text-yellow-500">I</span>
@@ -24,5 +34,10 @@ function NavTitle() {
     </div>
   );
 }
+
+// PropTypes declaration
+NavTitle.propTypes = {
+  handleDropdown: PropTypes.func,
+};
 
 export default NavTitle;
