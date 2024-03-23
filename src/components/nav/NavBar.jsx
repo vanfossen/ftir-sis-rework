@@ -17,15 +17,14 @@ function NavBar() {
     setMenu(!menu);
   };
 
-  const closeMenu = () => {
-    setMenu(false);
-  };
-
   return (
     <header className="bg-[#0f172a] p-2">
       <div className="flex items-center justify-evenly">
         {/* logo and title */}
-        <NavTitle handleDropdown={() => handleDropdown(null)} />
+        <NavTitle
+          handleDropdown={() => handleDropdown(null)}
+          handleMenu={() => handleMenu()}
+        />
 
         {/* desktop view of nav menus */}
         <nav className="hidden xl:flex">
@@ -35,7 +34,7 @@ function NavBar() {
               item={item}
               isActive={dropdown === i}
               handleDropdown={() => handleDropdown(i)}
-              closeMenu={() => closeMenu()}
+              handleMenu={() => handleMenu()}
             />
           ))}
         </nav>
@@ -60,7 +59,7 @@ function NavBar() {
               item={item}
               isActive={dropdown === i}
               handleDropdown={() => handleDropdown(i)}
-              closeMenu={() => closeMenu()}
+              handleMenu={() => handleMenu()}
             />
           ))}
         </div>

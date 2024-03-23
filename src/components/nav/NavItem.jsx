@@ -2,7 +2,7 @@ import { ChevronDown } from "lucide-react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-function NavItem({ item, isActive, handleDropdown, closeMenu }) {
+function NavItem({ item, isActive, handleDropdown, handleMenu }) {
   return (
     <div className="relative px-5">
       {/* menu */}
@@ -26,7 +26,7 @@ function NavItem({ item, isActive, handleDropdown, closeMenu }) {
               target={subItem.url ? "_blank" : ""}
               onClick={() => {
                 handleDropdown(null);
-                closeMenu();
+                handleMenu();
               }}
               className="m-1 block rounded p-2 text-start text-white hover:bg-[#374151] hover:text-orange-500"
             >
@@ -44,7 +44,7 @@ NavItem.propTypes = {
   item: PropTypes.object,
   isActive: PropTypes.bool,
   handleDropdown: PropTypes.func,
-  closeMenu: PropTypes.func,
+  handleMenu: PropTypes.func,
 };
 
 export default NavItem;
