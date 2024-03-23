@@ -13,8 +13,12 @@ function NavBar() {
 
   const [menu, setMenu] = useState(false);
 
-  const handleMenu = () => {
+  const toggleMenu = () => {
     setMenu(!menu);
+  };
+
+  const handleMenu = (value) => {
+    setMenu(value);
   };
 
   return (
@@ -43,7 +47,7 @@ function NavBar() {
         <nav className="flex xl:hidden">
           <button
             className={`rounded hover:bg-[#374151] ${menu ? "bg-[#374151]" : ""}`}
-            onClick={handleMenu}
+            onClick={toggleMenu}
           >
             <Menu size={35} color="white" />
           </button>

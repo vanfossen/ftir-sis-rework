@@ -9,7 +9,7 @@ function NavTitle({ handleDropdown, handleMenu }) {
         target="_blank"
         onClick={() => {
           handleDropdown(null);
-          handleMenu();
+          handleMenu(false);
         }}
         className="mx-4 rounded p-1 hover:bg-gray-600"
       >
@@ -20,7 +20,7 @@ function NavTitle({ handleDropdown, handleMenu }) {
         to="/"
         onClick={() => {
           handleDropdown(null);
-          handleMenu();
+          handleMenu(false);
         }}
         className="rounded p-1 text-3xl hover:bg-[#374151]"
       >

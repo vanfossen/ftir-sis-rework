@@ -26,7 +26,7 @@ function NavItem({ item, isActive, handleDropdown, handleMenu }) {
               target={subItem.url ? "_blank" : ""}
               onClick={() => {
                 handleDropdown(null);
-                handleMenu();
+                handleMenu(false);
               }}
               className="m-1 block rounded p-2 text-start text-white hover:bg-[#374151] hover:text-orange-500"
             >
