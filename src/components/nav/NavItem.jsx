@@ -9,7 +9,7 @@ function NavItem({ item, isActive, handleDropdown }) {
       <button
         className={`m-1 flex items-center rounded p-2 hover:bg-[#374151] ${isActive ? "bg-[#1e293b] text-orange-500" : "text-white"} `}
         onClick={() => {
-          handleDropdown();
+          handleDropdown(null);
         }}
       >
         {item.label}
@@ -25,7 +25,7 @@ function NavItem({ item, isActive, handleDropdown }) {
               to={subItem.route ? subItem.route : subItem.url}
               target={subItem.url ? "_blank" : ""}
               onClick={() => {
-                handleDropdown();
+                handleDropdown(null);
               }}
               className="m-1 block rounded p-2 text-start text-white hover:bg-[#374151] hover:text-orange-500"
             >
