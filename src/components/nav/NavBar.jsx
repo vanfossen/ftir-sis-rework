@@ -1,8 +1,8 @@
 import { Menu } from "lucide-react";
 import { useState } from "react";
 import { navItems } from "../../constants";
-import NavItem from "./NavItem";
-import NavTitle from "./NavTitle";
+import NavItem from "./NavItem.jsx";
+import NavTitle from "./NavTitle.jsx";
 
 function NavBar() {
   const [dropdown, setDropdown] = useState(null);
@@ -49,7 +49,7 @@ function NavBar() {
             className={`rounded hover:bg-[#374151] ${menu ? "bg-[#374151]" : ""}`}
             onClick={toggleMenu}
           >
-            <Menu size={35} color="white" />
+            <Menu size={35} color={menu ? "#F97316" : "white"} />
           </button>
         </nav>
       </div>
