@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Dialog from "./Dialog.jsx";
 
-function LandingPage() {
+function WelcomeDialog() {
   const [isOpen, setIsOpen] = useState(true);
   const handleClose = () => setIsOpen(false);
 
@@ -34,4 +34,4 @@ function LandingPage() {
   );
 }
 
-export default LandingPage;
+export default WelcomeDialog;
