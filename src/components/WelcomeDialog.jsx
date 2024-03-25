@@ -2,13 +2,28 @@ import { useState } from "react";
 import Dialog from "./Dialog.jsx";
 
 function WelcomeDialog() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(
+    localStorage.getItem("hideWelcomeDialog") !== "true",
+  );
   const handleClose = () => setIsOpen(false);
+
+  const [isChecked, setChecked] = useState(
+    localStorage.getItem("hideWelcomeDialog") === "true" ? true : false,
+  );
+  const handleChecked = (event) => {
+    if (event.target.checked) {
+      localStorage.setItem("hideWelcomeDialog", "true");
+      setChecked(true);
+    } else {
+      localStorage.setItem("hideWelcomeDialog", "false");
+      setChecked(false);
+    }
+  };
 
   return (
     <Dialog isOpen={isOpen} onClose={handleClose}>
       <div className="mx-5 flex flex-col items-center p-3 text-center">
-        <h1 className="pb-3 text-3xl font-bold underline">
+        <h1 className="pb-3 text-4xl font-bold underline">
           Welcome to
           <span>
             <span> </span>
@@ -23,12 +38,21 @@ function WelcomeDialog() {
           </span>
           !
         </h1>
-        <h2 className="p-1 text-xl">
-          Fourier Transform InfraRed-Scientific Instrument Simulator
+        <h2 className="p-1 text-xl underline">
+          Fourier Transform InfraRed - Scientific Instrument Simulator
         </h2>
-        <p className="text-md p-3">
+        <p className="p-3 text-lg">
           Please use the navigation bar above to explore the application!
         </p>
+        <div className="text-md">
+          <input
+            type="checkbox"
+            checked={isChecked}
+            onChange={handleChecked}
+            className="mx-3"
+          />
+          <label>Hide popup on reload/refresh?</label>
+        </div>
       </div>
     </Dialog>
   );
