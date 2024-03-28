@@ -1,14 +1,30 @@
+import { Link } from "react-router-dom";
+
 export const navItems = [
   {
     label: "File",
     submenu: [
       {
-        label: "Open",
-        url: "https://www.example.com/",
+        url: (
+          <a
+            href="https://www.example.com/"
+            target="_blank"
+            className="m-1 block rounded p-2 text-start text-white hover:bg-[#374151] hover:text-orange-500"
+          >
+            Open
+          </a>
+        ),
       },
       {
-        label: "Save",
-        url: "https://www.example.com/",
+        url: (
+          <a
+            href="https://www.example.com/"
+            target="_blank"
+            className="m-1 block rounded p-2 text-start text-white hover:bg-[#374151] hover:text-orange-500"
+          >
+            Save
+          </a>
+        ),
       },
     ],
   },
@@ -16,20 +32,45 @@ export const navItems = [
     label: "Window",
     submenu: [
       {
-        label: "Experimental Setup",
-        route: "setup",
+        url: (
+          <Link
+            to={"setup"}
+            className="m-1 block rounded p-2 text-start text-white hover:bg-[#374151] hover:text-orange-500"
+          >
+            Experimental Setup
+          </Link>
+        ),
       },
       {
-        label: "Instrument",
-        route: "instrument",
+        url: (
+          <Link
+            to={"instrument"}
+            className="m-1 block rounded p-2 text-start text-white hover:bg-[#374151] hover:text-orange-500"
+          >
+            Instrument
+          </Link>
+        ),
       },
       {
-        label: "Spectra",
-        route: "spectra",
+        url: (
+          <Link
+            to={"spectra"}
+            className="m-1 block rounded p-2 text-start text-white hover:bg-[#374151] hover:text-orange-500"
+          >
+            Spectra
+          </Link>
+        ),
       },
       {
-        label: "Find Peaks",
-        url: "https://www.example.com/",
+        url: (
+          <a
+            href="https://www.example.com/"
+            target="_blank"
+            className="m-1 block rounded p-2 text-start text-white hover:bg-[#374151] hover:text-orange-500"
+          >
+            Find Peaks
+          </a>
+        ),
       },
     ],
   },
@@ -37,16 +78,37 @@ export const navItems = [
     label: "Measure",
     submenu: [
       {
-        label: "Collect Background",
-        url: "https://www.example.com/",
+        url: (
+          <a
+            href="https://www.example.com/"
+            target="_blank"
+            className="m-1 block rounded p-2 text-start text-white hover:bg-[#374151] hover:text-orange-500"
+          >
+            Collect Background
+          </a>
+        ),
       },
       {
-        label: "Collect Sample",
-        url: "https://www.example.com/",
+        url: (
+          <a
+            href="https://www.example.com/"
+            target="_blank"
+            className="m-1 block rounded p-2 text-start text-white hover:bg-[#374151] hover:text-orange-500"
+          >
+            Collect Sample
+          </a>
+        ),
       },
       {
-        label: "Cancel Scan",
-        url: "https://www.example.com/",
+        url: (
+          <a
+            href="https://www.example.com/"
+            target="_blank"
+            className="m-1 block rounded p-2 text-start text-white hover:bg-[#374151] hover:text-orange-500"
+          >
+            Cancel Scan
+          </a>
+        ),
       },
     ],
   },
@@ -54,12 +116,26 @@ export const navItems = [
     label: "Help",
     submenu: [
       {
-        label: "Tutorial",
-        url: "https://www.example.com/",
+        url: (
+          <a
+            href="https://www.example.com/"
+            target="_blank"
+            className="m-1 block rounded p-2 text-start text-white hover:bg-[#374151] hover:text-orange-500"
+          >
+            Tutorial
+          </a>
+        ),
       },
       {
-        label: "Landing Page",
-        url: "https://www.example.com/",
+        url: (
+          <a
+            href="https://www.example.com/"
+            target="_blank"
+            className="m-1 block rounded p-2 text-start text-white hover:bg-[#374151] hover:text-orange-500"
+          >
+            Landing Page
+          </a>
+        ),
       },
     ],
   },
