@@ -152,14 +152,15 @@ function NavBar({ toggleOpen }) {
                         handleMenu(false);
                       }}
                     >
-                      {!subItem.dialog && subItem.url}
-                      {subItem.dialog && (
+                      {subItem.dialog ? (
                         <CustomAnchor
                           label={subItem.label}
                           onClick={() => {
                             toggleOpen();
                           }}
                         />
+                      ) : (
+                        subItem.url
                       )}
                     </button>
                   ))}
@@ -210,14 +211,15 @@ function NavBar({ toggleOpen }) {
                         handleMenu(false);
                       }}
                     >
-                      {!subItem.dialog && subItem.url}
-                      {subItem.dialog && (
+                      {subItem.dialog ? (
                         <CustomAnchor
                           label={subItem.label}
                           onClick={() => {
                             toggleOpen();
                           }}
                         />
+                      ) : (
+                        subItem.url
                       )}
                     </button>
                   ))}
