@@ -74,7 +74,7 @@ const navItems = [
   },
 ];
 
-function NavBar({ toggleOpen, toggleTutorial }) {
+function NavBar({ toggleWelcome, toggleTutorial }) {
   const [dropdown, setDropdown] = useState(null);
 
   const handleDropdown = (index) => {
@@ -160,7 +160,7 @@ function NavBar({ toggleOpen, toggleTutorial }) {
                           onClick={() => {
                             switch (subItem.url) {
                               case "welcomeDialog":
-                                toggleOpen();
+                                toggleWelcome();
                                 break;
                               case "tutorialDialog":
                                 toggleTutorial();
@@ -226,7 +226,7 @@ function NavBar({ toggleOpen, toggleTutorial }) {
                           onClick={() => {
                             switch (subItem.url) {
                               case "welcomeDialog":
-                                toggleOpen();
+                                toggleWelcome();
                                 break;
                               case "tutorialDialog":
                                 toggleTutorial();
@@ -251,7 +251,7 @@ function NavBar({ toggleOpen, toggleTutorial }) {
 
 // PropTypes declaration
 NavBar.propTypes = {
-  toggleOpen: PropTypes.func,
+  toggleWelcome: PropTypes.func,
   toggleTutorial: PropTypes.func,
 };
 

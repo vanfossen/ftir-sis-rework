@@ -2,7 +2,7 @@ import { X } from "lucide-react";
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-function NewDialog({ isOpen, toggleOpen }) {
+function NewDialog({ isWelcome, toggleWelcome }) {
   const [isChecked, setChecked] = useState(
     localStorage.getItem("hideWelcomeDialog") === "true" ? true : false,
   );
@@ -19,14 +19,14 @@ function NewDialog({ isOpen, toggleOpen }) {
   return (
     <div
       className={`fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 py-32 ${
-        isOpen
+        isWelcome
           ? "pointer-events-auto opacity-100"
           : "pointer-events-none opacity-0"
       }`}
     >
       <div className="mx-auto max-h-full max-w-xl overflow-x-hidden rounded-xl bg-white">
         <div className="flex items-center justify-end border-b border-gray-200 p-3">
-          <button onClick={toggleOpen} className="rounded hover:bg-gray-300">
+          <button onClick={toggleWelcome} className="rounded hover:bg-gray-300">
             <X />
           </button>
         </div>
@@ -69,8 +69,8 @@ function NewDialog({ isOpen, toggleOpen }) {
 
 // PropTypes declaration
 NewDialog.propTypes = {
-  isOpen: PropTypes.bool,
-  toggleOpen: PropTypes.func,
+  isWelcome: PropTypes.bool,
+  toggleWelcome: PropTypes.func,
 };
 
 export default NewDialog;

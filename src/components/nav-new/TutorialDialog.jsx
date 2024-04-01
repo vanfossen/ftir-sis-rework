@@ -1,18 +1,21 @@
 import { X } from "lucide-react";
 import PropTypes from "prop-types";
 
-function NewDialog({ isOpen, toggleOpen }) {
+function TutorialDialog({ isTutorial, toggleTutorial }) {
   return (
     <div
       className={`fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 py-32 ${
-        isOpen
+        isTutorial
           ? "pointer-events-auto opacity-100"
           : "pointer-events-none opacity-0"
       }`}
     >
       <div className="mx-auto max-h-full max-w-xl overflow-x-hidden rounded-xl bg-white">
         <div className="flex items-center justify-end border-b border-gray-200 p-3">
-          <button onClick={toggleOpen} className="rounded hover:bg-gray-300">
+          <button
+            onClick={toggleTutorial}
+            className="rounded hover:bg-gray-300"
+          >
             <X />
           </button>
         </div>
@@ -25,9 +28,9 @@ function NewDialog({ isOpen, toggleOpen }) {
 }
 
 // PropTypes declaration
-NewDialog.propTypes = {
-  isOpen: PropTypes.bool,
-  toggleOpen: PropTypes.func,
+TutorialDialog.propTypes = {
+  isTutorial: PropTypes.bool,
+  toggleTutorial: PropTypes.func,
 };
 
-export default NewDialog;
+export default TutorialDialog;

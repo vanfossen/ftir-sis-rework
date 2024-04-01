@@ -5,7 +5,7 @@ import NewDialog from "./components/nav-new/NewDialog.jsx";
 import TutorialDialog from "./components/nav-new/TutorialDialog.jsx";
 
 function App() {
-  const [isOpen, setIsOpen] = useState(
+  const [isWelcome, setWelcome] = useState(
     localStorage.getItem("hideWelcomeDialog") !== "true",
   );
 
@@ -14,14 +14,17 @@ function App() {
   return (
     <>
       <NavBarNew
-        toggleOpen={() => setIsOpen(!isOpen)}
+        toggleWelcome={() => setWelcome(!isWelcome)}
         toggleTutorial={() => setTutorial(!isTutorial)}
       />
       <TutorialDialog
-        isOpen={isTutorial}
-        toggleOpen={() => setTutorial(!isTutorial)}
+        isTutorial={isTutorial}
+        toggleTutorial={() => setTutorial(!isTutorial)}
       />
-      <NewDialog isOpen={isOpen} toggleOpen={() => setIsOpen(!isOpen)} />
+      <NewDialog
+        isWelcome={isWelcome}
+        toggleWelcome={() => setWelcome(!isWelcome)}
+      />
       <Outlet />
     </>
   );
