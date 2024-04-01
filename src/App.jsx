@@ -13,10 +13,13 @@ function App() {
 
   return (
     <>
+      {/* navbar */}
       <NavBarNew
         toggleWelcome={() => setWelcome(!isWelcome)}
         toggleTutorial={() => setTutorial(!isTutorial)}
       />
+
+      {/* dialogs (popups) */}
       <TutorialDialog
         isTutorial={isTutorial}
         toggleTutorial={() => setTutorial(!isTutorial)}
@@ -25,6 +28,8 @@ function App() {
         isWelcome={isWelcome}
         toggleWelcome={() => setWelcome(!isWelcome)}
       />
+
+      {/* handle react-router children */}
       <Outlet />
     </>
   );
