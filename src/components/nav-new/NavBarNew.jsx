@@ -1,7 +1,6 @@
 import { ChevronDown, Menu } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import WelcomeDialog from "../WelcomeDialog";
 import CustomAnchor from "./CustomAnchor";
 import CustomLink from "./CustomLink";
 
@@ -64,7 +63,7 @@ const navItems = [
         url: <CustomAnchor url="https://www.example.com/" label="Tutorial" />,
       },
       {
-        url: <WelcomeDialog>Welcome</WelcomeDialog>,
+        url: <CustomAnchor url="https://www.example.com/" label="Welcome" />,
       },
     ],
   },
