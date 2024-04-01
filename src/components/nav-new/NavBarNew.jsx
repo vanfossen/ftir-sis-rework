@@ -61,7 +61,9 @@ const navItems = [
     label: "Help",
     submenu: [
       {
-        url: <CustomAnchor url="https://www.example.com/" label="Tutorial" />,
+        dialog: true,
+        label: "Tutorial",
+        url: "tutorialDialog",
       },
       {
         dialog: true,
@@ -72,7 +74,7 @@ const navItems = [
   },
 ];
 
-function NavBar({ toggleOpen }) {
+function NavBar({ toggleOpen, toggleTutorial }) {
   const [dropdown, setDropdown] = useState(null);
 
   const handleDropdown = (index) => {
@@ -156,7 +158,14 @@ function NavBar({ toggleOpen }) {
                         <CustomAnchor
                           label={subItem.label}
                           onClick={() => {
-                            toggleOpen();
+                            switch (subItem.url) {
+                              case "welcomeDialog":
+                                toggleOpen();
+                                break;
+                              case "tutorialDialog":
+                                toggleTutorial();
+                                break;
+                            }
                           }}
                         />
                       ) : (
@@ -215,7 +224,14 @@ function NavBar({ toggleOpen }) {
                         <CustomAnchor
                           label={subItem.label}
                           onClick={() => {
-                            toggleOpen();
+                            switch (subItem.url) {
+                              case "welcomeDialog":
+                                toggleOpen();
+                                break;
+                              case "tutorialDialog":
+                                toggleTutorial();
+                                break;
+                            }
                           }}
                         />
                       ) : (
@@ -236,6 +252,7 @@ function NavBar({ toggleOpen }) {
 // PropTypes declaration
 NavBar.propTypes = {
   toggleOpen: PropTypes.func,
+  toggleTutorial: PropTypes.func,
 };
 
 export default NavBar;
