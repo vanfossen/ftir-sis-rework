@@ -1,4 +1,5 @@
 import { ChevronDown, Menu } from "lucide-react";
+import PropTypes from "prop-types";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import CustomAnchor from "./CustomAnchor";
@@ -63,13 +64,15 @@ const navItems = [
         url: <CustomAnchor url="https://www.example.com/" label="Tutorial" />,
       },
       {
-        url: <CustomAnchor url="https://www.example.com/" label="Welcome" />,
+        dialog: true,
+        label: "Welcome Dialog",
+        url: "welcomeDialog",
       },
     ],
   },
 ];
 
-function NavBar() {
+function NavBar({ toggleOpen }) {
   const [dropdown, setDropdown] = useState(null);
 
   const handleDropdown = (index) => {
@@ -149,7 +152,15 @@ function NavBar() {
                         handleMenu(false);
                       }}
                     >
-                      {subItem.url}
+                      {!subItem.dialog && subItem.url}
+                      {subItem.dialog && (
+                        <CustomAnchor
+                          label={subItem.label}
+                          onClick={() => {
+                            toggleOpen();
+                          }}
+                        />
+                      )}
                     </button>
                   ))}
                 </div>
@@ -199,7 +210,15 @@ function NavBar() {
                         handleMenu(false);
                       }}
                     >
-                      {subItem.url}
+                      {!subItem.dialog && subItem.url}
+                      {subItem.dialog && (
+                        <CustomAnchor
+                          label={subItem.label}
+                          onClick={() => {
+                            toggleOpen();
+                          }}
+                        />
+                      )}
                     </button>
                   ))}
                 </div>
@@ -211,5 +230,10 @@ function NavBar() {
     </header>
   );
 }
+
+// PropTypes declaration
+NavBar.propTypes = {
+  toggleOpen: PropTypes.func,
+};
 
 export default NavBar;
