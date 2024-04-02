@@ -1,9 +1,9 @@
 import { ChevronDown, Menu } from "lucide-react";
 import PropTypes from "prop-types";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { navItems } from "../../constants/navItems.jsx";
 import CustomAnchor from "./CustomAnchor.jsx";
+import NavTitle from "./NavTitle.jsx";
 
 function NavBar({ toggleWelcome, toggleTutorial }) {
   const [dropdown, setDropdown] = useState(null);
@@ -26,37 +26,10 @@ function NavBar({ toggleWelcome, toggleTutorial }) {
     <header className="bg-[#0f172a] p-2">
       <div className="flex items-center justify-evenly">
         {/* logo and title */}
-        <div className="flex items-center">
-          <a
-            href="https://www.rastonlab.org"
-            target="_blank"
-            onClick={() => {
-              handleDropdown(null);
-              handleMenu(false);
-            }}
-            className="mx-4 rounded p-1 hover:bg-gray-600"
-          >
-            <img src="/vite.svg" alt="Vite Logo" />
-          </a>
-
-          <Link
-            to="/"
-            onClick={() => {
-              handleDropdown(null);
-              handleMenu(false);
-            }}
-            className="rounded p-1 text-3xl hover:bg-[#374151]"
-          >
-            <span className="text-red-500">F</span>
-            <span className="text-orange-500">T</span>
-            <span className="text-yellow-500">I</span>
-            <span className="text-green-500">R</span>
-            <span className="text-teal-500">-</span>
-            <span className="text-blue-500">S</span>
-            <span className="text-indigo-500">I</span>
-            <span className="text-purple-500">S</span>
-          </Link>
-        </div>
+        <NavTitle
+          handleDropdown={() => handleDropdown()}
+          handleMenu={() => handleMenu()}
+        />
 
         {/* desktop view of nav menus */}
         <nav className="hidden xl:flex">
