@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
+import TutorialDialog from "./components/dialogs/TutorialDialog.jsx";
+import WelcomeDialog from "./components/dialogs/WelcomeDialog.jsx";
 import NavBarNew from "./components/nav-new/NavBarNew.jsx";
-import TutorialDialog from "./components/nav-new/TutorialDialog.jsx";
-import WelcomeDialog from "./components/nav-new/WelcomeDialog.jsx";
 
 function App() {
   const [isWelcome, setWelcome] = useState(

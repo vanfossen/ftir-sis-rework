@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
-import Dialog from "../Dialog.jsx";
+import Dialog from "./Dialog.jsx";
 
 function NewDialog({ isWelcome, toggleWelcome }) {
   const [isChecked, setChecked] = useState(

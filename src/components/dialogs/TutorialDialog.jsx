@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import Dialog from "../Dialog.jsx";
+import Dialog from "./Dialog.jsx";
 
 function TutorialDialog({ isTutorial, toggleTutorial }) {
   return (
