@@ -1,7 +1,7 @@
 import { X } from "lucide-react";
 import PropTypes from "prop-types";
 
-function Dialog({ isOpen, onClose, children }) {
+function Dialog({ isOpen, toggleClose, children }) {
   return (
     <div
       className={`fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 py-32 ${
@@ -12,7 +12,7 @@ function Dialog({ isOpen, onClose, children }) {
     >
       <div className="mx-auto max-h-full max-w-xl overflow-x-hidden rounded-xl bg-white">
         <div className="flex items-center justify-end border-b border-gray-200 p-3">
-          <button onClick={onClose} className="rounded hover:bg-gray-300">
+          <button onClick={toggleClose} className="rounded hover:bg-gray-300">
             <X />
           </button>
         </div>
@@ -26,7 +26,7 @@ function Dialog({ isOpen, onClose, children }) {
 // PropTypes declaration
 Dialog.propTypes = {
   isOpen: PropTypes.bool,
-  onClose: PropTypes.func,
+  toggleClose: PropTypes.func,
   children: PropTypes.node,
 };
 
