@@ -11,7 +11,9 @@ export const navItems = [
         url: "openDialog",
       },
       {
-        url: <CustomAnchor url="https://www.example.com/" label="Save" />,
+        dialog: true,
+        label: "Save",
+        url: "saveDialog",
       },
     ],
   },

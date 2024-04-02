@@ -33,6 +33,9 @@ function NavItem({ item, isActive, handleDropdown, handleMenu, dialog }) {
                       case "openDialog":
                         dialog.open();
                         break;
+                      case "saveDialog":
+                        dialog.save();
+                        break;
                       case "welcomeDialog":
                         dialog.welcome();
                         break;

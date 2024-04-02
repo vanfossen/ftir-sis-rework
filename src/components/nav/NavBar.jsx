@@ -5,7 +5,7 @@ import { navItems } from "../../constants/navItems.jsx";
 import NavItem from "./NavItem.jsx";
 import NavTitle from "./NavTitle.jsx";
 
-function NavBar({ toggleOpen, toggleWelcome, toggleTutorial }) {
+function NavBar({ toggleOpen, toggleSave, toggleWelcome, toggleTutorial }) {
   const [dropdown, setDropdown] = useState(null);
 
   const handleDropdown = (index) => {
@@ -38,6 +38,7 @@ function NavBar({ toggleOpen, toggleWelcome, toggleTutorial }) {
               handleMenu={() => toggleMenu(false)}
               dialog={{
                 open: toggleOpen,
+                save: toggleSave,
                 welcome: toggleWelcome,
                 tutorial: toggleTutorial,
               }}
@@ -68,6 +69,7 @@ function NavBar({ toggleOpen, toggleWelcome, toggleTutorial }) {
               handleMenu={() => toggleMenu(false)}
               dialog={{
                 open: toggleOpen,
+                save: toggleSave,
                 welcome: toggleWelcome,
                 tutorial: toggleTutorial,
               }}
@@ -82,6 +84,7 @@ function NavBar({ toggleOpen, toggleWelcome, toggleTutorial }) {
 // PropTypes declaration
 NavBar.propTypes = {
   toggleOpen: PropTypes.func,
+  toggleSave: PropTypes.func,
   toggleWelcome: PropTypes.func,
   toggleTutorial: PropTypes.func,
 };
