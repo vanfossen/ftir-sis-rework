@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import TutorialDialog from "./components/dialogs/TutorialDialog.jsx";
 import WelcomeDialog from "./components/dialogs/WelcomeDialog.jsx";
-import NavBarNew from "./components/nav-new/NavBarNew.jsx";
+import NavBar from "./components/nav/NavBar.jsx";
 
 function App() {
   const [isWelcome, setWelcome] = useState(
@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       {/* navbar */}
-      <NavBarNew
+      <NavBar
         toggleWelcome={() => setWelcome(!isWelcome)}
         toggleTutorial={() => setTutorial(!isTutorial)}
       />
