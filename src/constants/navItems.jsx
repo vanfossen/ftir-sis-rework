@@ -1,5 +1,5 @@
-import CustomAnchor from "../components/nav-new/CustomAnchor.jsx";
-import CustomLink from "../components/nav-new/CustomLink.jsx";
+import CustomAnchor from "../components/nav/CustomAnchor.jsx";
+import CustomLink from "../components/nav/CustomLink.jsx";
 
 export const navItems = [
   {
