@@ -1,6 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import PropTypes from "prop-types";
-import CustomAnchor from "./CustomAnchor";
+import CustomAnchor from "./CustomAnchor.jsx";
 
 function NavItem({ item, isActive, handleDropdown, handleMenu, dialog }) {
   return (
