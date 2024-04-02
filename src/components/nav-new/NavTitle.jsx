@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-function NavTitle({ handleDropdown, handleMenu }) {
+function NavTitle({ handleDropdown, toggleMenu }) {
   return (
     <div className="flex items-center">
       <a
@@ -9,7 +9,7 @@ function NavTitle({ handleDropdown, handleMenu }) {
         target="_blank"
         onClick={() => {
           handleDropdown(null);
-          handleMenu(false);
+          toggleMenu();
         }}
         className="mx-4 rounded p-1 hover:bg-gray-600"
       >
@@ -20,7 +20,7 @@ function NavTitle({ handleDropdown, handleMenu }) {
         to="/"
         onClick={() => {
           handleDropdown(null);
-          handleMenu(false);
+          toggleMenu();
         }}
         className="rounded p-1 text-3xl hover:bg-[#374151]"
       >
@@ -40,7 +40,7 @@ function NavTitle({ handleDropdown, handleMenu }) {
 // PropTypes declaration
 NavTitle.propTypes = {
   handleDropdown: PropTypes.func,
-  handleMenu: PropTypes.func,
+  toggleMenu: PropTypes.func,
 };
 
 export default NavTitle;

@@ -14,12 +14,8 @@ function NavBar({ toggleWelcome, toggleTutorial }) {
 
   const [menu, setMenu] = useState(false);
 
-  const toggleMenu = () => {
-    setMenu(!menu);
-  };
-
-  const handleMenu = (value) => {
-    setMenu(value);
+  const toggleMenu = (value) => {
+    setMenu(value === undefined ? !menu : value);
   };
 
   return (
@@ -28,7 +24,7 @@ function NavBar({ toggleWelcome, toggleTutorial }) {
         {/* logo and title */}
         <NavTitle
           handleDropdown={() => handleDropdown()}
-          handleMenu={() => handleMenu()}
+          toggleMenu={() => toggleMenu(false)}
         />
 
         {/* desktop view of nav menus */}
@@ -55,7 +51,7 @@ function NavBar({ toggleWelcome, toggleTutorial }) {
                       key={index}
                       onClick={() => {
                         handleDropdown(null);
-                        handleMenu(false);
+                        toggleMenu();
                       }}
                     >
                       {subItem.dialog ? (
@@ -87,7 +83,7 @@ function NavBar({ toggleWelcome, toggleTutorial }) {
         <nav className="flex xl:hidden">
           <button
             className={`rounded hover:bg-[#374151] ${menu ? "bg-[#374151]" : ""}`}
-            onClick={toggleMenu}
+            onClick={() => toggleMenu()}
           >
             <Menu size={35} color={menu ? "#F97316" : "white"} />
           </button>
@@ -121,7 +117,7 @@ function NavBar({ toggleWelcome, toggleTutorial }) {
                       key={index}
                       onClick={() => {
                         handleDropdown(null);
-                        handleMenu(false);
+                        toggleMenu();
                       }}
                     >
                       {subItem.dialog ? (
