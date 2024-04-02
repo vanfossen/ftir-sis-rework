@@ -1,10 +1,11 @@
 import { Menu } from "lucide-react";
+import PropTypes from "prop-types";
 import { useState } from "react";
-import { navItems } from "../../constants";
+import { navItems } from "../../constants/navItems.jsx";
 import NavItem from "./NavItem.jsx";
 import NavTitle from "./NavTitle.jsx";
 
-function NavBar() {
+function NavBar({ toggleWelcome, toggleTutorial }) {
   const [dropdown, setDropdown] = useState(null);
 
   const handleDropdown = (index) => {
@@ -13,12 +14,8 @@ function NavBar() {
 
   const [menu, setMenu] = useState(false);
 
-  const toggleMenu = () => {
-    setMenu(!menu);
-  };
-
-  const handleMenu = (value) => {
-    setMenu(value);
+  const toggleMenu = (value) => {
+    setMenu(value === undefined ? !menu : value);
   };
 
   return (
@@ -26,8 +23,8 @@ function NavBar() {
       <div className="flex items-center justify-evenly">
         {/* logo and title */}
         <NavTitle
-          handleDropdown={() => handleDropdown(null)}
-          handleMenu={() => handleMenu()}
+          handleDropdown={() => handleDropdown()}
+          toggleMenu={() => toggleMenu(false)}
         />
 
         {/* desktop view of nav menus */}
@@ -38,7 +35,8 @@ function NavBar() {
               item={item}
               isActive={dropdown === i}
               handleDropdown={() => handleDropdown(i)}
-              handleMenu={() => handleMenu()}
+              handleMenu={() => toggleMenu(false)}
+              dialog={{ welcome: toggleWelcome, tutorial: toggleTutorial }}
             />
           ))}
         </nav>
@@ -47,7 +45,7 @@ function NavBar() {
         <nav className="flex xl:hidden">
           <button
             className={`rounded hover:bg-[#374151] ${menu ? "bg-[#374151]" : ""}`}
-            onClick={toggleMenu}
+            onClick={() => toggleMenu()}
           >
             <Menu size={35} color={menu ? "#F97316" : "white"} />
           </button>
@@ -63,7 +61,8 @@ function NavBar() {
               item={item}
               isActive={dropdown === i}
               handleDropdown={() => handleDropdown(i)}
-              handleMenu={() => handleMenu()}
+              handleMenu={() => toggleMenu(false)}
+              dialog={{ welcome: toggleWelcome, tutorial: toggleTutorial }}
             />
           ))}
         </div>
@@ -71,5 +70,11 @@ function NavBar() {
     </header>
   );
 }
+
+// PropTypes declaration
+NavBar.propTypes = {
+  toggleWelcome: PropTypes.func,
+  toggleTutorial: PropTypes.func,
+};
 
 export default NavBar;

@@ -1,16 +1,14 @@
 import { ChevronDown } from "lucide-react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import CustomAnchor from "./CustomAnchor.jsx";
 
-function NavItem({ item, isActive, handleDropdown, handleMenu }) {
+function NavItem({ item, isActive, handleDropdown, handleMenu, dialog }) {
   return (
     <div className="relative px-5">
       {/* menu */}
       <button
         className={`m-1 flex items-center rounded p-2 hover:bg-[#374151] ${isActive ? "bg-[#1e293b] text-orange-500" : "text-white"} `}
-        onClick={() => {
-          handleDropdown(null);
-        }}
+        onClick={() => handleDropdown()}
       >
         {item.label}
         <ChevronDown size={15} className={`${isActive ? "rotate-180" : ""}`} />
@@ -20,18 +18,31 @@ function NavItem({ item, isActive, handleDropdown, handleMenu }) {
       {isActive && (
         <div className="left-0 mt-1 flex w-full flex-col rounded bg-[#1e293b] p-1 sm:static xl:absolute">
           {item.submenu.map((subItem, index) => (
-            <Link
+            <button
               key={index}
-              to={subItem.route ? subItem.route : subItem.url}
-              target={subItem.url ? "_blank" : ""}
               onClick={() => {
-                handleDropdown(null);
-                handleMenu(false);
+                handleDropdown();
+                handleMenu();
               }}
-              className="m-1 block rounded p-2 text-start text-white hover:bg-[#374151] hover:text-orange-500"
             >
-              {subItem.label}
-            </Link>
+              {subItem.dialog ? (
+                <CustomAnchor
+                  label={subItem.label}
+                  onClick={() => {
+                    switch (subItem.url) {
+                      case "welcomeDialog":
+                        dialog.welcome();
+                        break;
+                      case "tutorialDialog":
+                        dialog.tutorial();
+                        break;
+                    }
+                  }}
+                />
+              ) : (
+                subItem.url
+              )}
+            </button>
           ))}
         </div>
       )}
@@ -45,6 +56,7 @@ NavItem.propTypes = {
   isActive: PropTypes.bool,
   handleDropdown: PropTypes.func,
   handleMenu: PropTypes.func,
+  dialog: PropTypes.object,
 };
 
 export default NavItem;
