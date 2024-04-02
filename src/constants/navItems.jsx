@@ -6,7 +6,9 @@ export const navItems = [
     label: "File",
     submenu: [
       {
-        url: <CustomAnchor url="https://www.example.com/" label="Open" />,
+        dialog: true,
+        label: "Open",
+        url: "openDialog",
       },
       {
         url: <CustomAnchor url="https://www.example.com/" label="Save" />,

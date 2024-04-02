@@ -30,6 +30,9 @@ function NavItem({ item, isActive, handleDropdown, handleMenu, dialog }) {
                   label={subItem.label}
                   onClick={() => {
                     switch (subItem.url) {
+                      case "openDialog":
+                        dialog.open();
+                        break;
                       case "welcomeDialog":
                         dialog.welcome();
                         break;
