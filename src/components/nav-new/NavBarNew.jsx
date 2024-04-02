@@ -1,8 +1,8 @@
-import { ChevronDown, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { navItems } from "../../constants/navItems.jsx";
-import CustomAnchor from "./CustomAnchor.jsx";
+import NavItem from "./NavItem.jsx";
 import NavTitle from "./NavTitle.jsx";
 
 function NavBar({ toggleWelcome, toggleTutorial }) {
@@ -30,52 +30,14 @@ function NavBar({ toggleWelcome, toggleTutorial }) {
         {/* desktop view of nav menus */}
         <nav className="hidden xl:flex">
           {navItems.map((item, i) => (
-            <div key={i} className="relative px-5">
-              {/* menu */}
-              <button
-                className={`m-1 flex items-center rounded p-2 hover:bg-[#374151] ${dropdown === i ? "bg-[#1e293b] text-orange-500" : "text-white"} `}
-                onClick={() => handleDropdown(i)}
-              >
-                {item.label}
-                <ChevronDown
-                  size={15}
-                  className={`${dropdown === i ? "rotate-180" : ""}`}
-                />
-              </button>
-
-              {/* submenu */}
-              {dropdown === i && (
-                <div className="left-0 mt-1 flex w-full flex-col rounded bg-[#1e293b] p-1 sm:static xl:absolute">
-                  {item.submenu.map((subItem, index) => (
-                    <button
-                      key={index}
-                      onClick={() => {
-                        handleDropdown(null);
-                        toggleMenu();
-                      }}
-                    >
-                      {subItem.dialog ? (
-                        <CustomAnchor
-                          label={subItem.label}
-                          onClick={() => {
-                            switch (subItem.url) {
-                              case "welcomeDialog":
-                                toggleWelcome();
-                                break;
-                              case "tutorialDialog":
-                                toggleTutorial();
-                                break;
-                            }
-                          }}
-                        />
-                      ) : (
-                        subItem.url
-                      )}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
+            <NavItem
+              key={i}
+              item={item}
+              isActive={dropdown === i}
+              handleDropdown={() => handleDropdown(i)}
+              handleMenu={() => toggleMenu(false)}
+              dialog={{ welcome: toggleWelcome, tutorial: toggleTutorial }}
+            />
           ))}
         </nav>
 
@@ -94,54 +56,14 @@ function NavBar({ toggleWelcome, toggleTutorial }) {
       {menu && (
         <div className="bg-[#0f172a] xl:hidden">
           {navItems.map((item, i) => (
-            <div key={i} className="relative px-5">
-              {/* menu */}
-              <button
-                className={`m-1 flex items-center rounded p-2 hover:bg-[#374151] ${dropdown === i ? "bg-[#1e293b] text-orange-500" : "text-white"} `}
-                onClick={() => {
-                  handleDropdown(i);
-                }}
-              >
-                {item.label}
-                <ChevronDown
-                  size={15}
-                  className={`${dropdown === i ? "rotate-180" : ""}`}
-                />
-              </button>
-
-              {/* submenu */}
-              {dropdown === i && (
-                <div className="left-0 mt-1 flex w-full flex-col rounded bg-[#1e293b] p-1 sm:static xl:absolute">
-                  {item.submenu.map((subItem, index) => (
-                    <button
-                      key={index}
-                      onClick={() => {
-                        handleDropdown(null);
-                        toggleMenu();
-                      }}
-                    >
-                      {subItem.dialog ? (
-                        <CustomAnchor
-                          label={subItem.label}
-                          onClick={() => {
-                            switch (subItem.url) {
-                              case "welcomeDialog":
-                                toggleWelcome();
-                                break;
-                              case "tutorialDialog":
-                                toggleTutorial();
-                                break;
-                            }
-                          }}
-                        />
-                      ) : (
-                        subItem.url
-                      )}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
+            <NavItem
+              key={i}
+              item={item}
+              isActive={dropdown === i}
+              handleDropdown={() => handleDropdown(i)}
+              handleMenu={() => toggleMenu(false)}
+              dialog={{ welcome: toggleWelcome, tutorial: toggleTutorial }}
+            />
           ))}
         </div>
       )}
