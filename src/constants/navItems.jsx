@@ -63,7 +63,7 @@ export const navItems = [
       },
       {
         dialog: true,
-        label: "Welcome Dialog",
+        label: "Welcome",
         url: "welcomeDialog",
       },
     ],
