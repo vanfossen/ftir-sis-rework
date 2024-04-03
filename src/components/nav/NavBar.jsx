@@ -49,7 +49,7 @@ function NavBar({ toggleOpen, toggleSave, toggleWelcome, toggleTutorial }) {
         {/* mobile view of nav menus (hamburger) */}
         <nav className="flex xl:hidden">
           <button
-            className={`rounded hover:bg-[#374151] ${menu ? "bg-[#374151]" : ""}`}
+            className={`rounded transition-all hover:bg-[#374151] ${menu ? "bg-[#374151]" : ""}`}
             onClick={() => toggleMenu()}
           >
             <Menu size={35} color={menu ? "#F97316" : "white"} />

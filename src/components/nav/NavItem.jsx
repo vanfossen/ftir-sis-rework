@@ -7,7 +7,7 @@ function NavItem({ item, isActive, handleDropdown, handleMenu, dialog }) {
     <div className="relative px-5">
       {/* menu */}
       <button
-        className={`m-1 flex items-center rounded p-2 hover:bg-[#374151] ${isActive ? "bg-[#1e293b] text-orange-500" : "text-white"} `}
+        className={`m-1 flex items-center rounded p-2 transition-all hover:bg-[#374151] ${isActive ? "bg-[#1e293b] text-orange-500" : "text-white"} `}
         onClick={() => handleDropdown()}
       >
         {item.label}
