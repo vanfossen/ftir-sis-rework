@@ -6,7 +6,7 @@ function CustomAnchor({ url, label, onClick }) {
       href={url}
       target="_blank"
       onClick={onClick}
-      className="m-1 block rounded p-2 text-start text-white transition-all hover:bg-[#374151] hover:text-orange-500"
+      className="m-0 block rounded p-2 text-start text-white transition-all hover:bg-[#374151] hover:text-orange-500"
     >
       {label}
     </a>
