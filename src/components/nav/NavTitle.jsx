@@ -11,7 +11,7 @@ function NavTitle({ handleDropdown, toggleMenu }) {
           handleDropdown(null);
           toggleMenu();
         }}
-        className="rounded p-1 transition-all hover:bg-gray-600"
+        className="rounded p-1 transition-all hover:bg-[#374151]"
       >
         <img src="/vite.svg" alt="Vite Logo" />
       </a>
