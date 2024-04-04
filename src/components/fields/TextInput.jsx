@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 // https://tailwindcss.com/docs/hover-focus-and-other-states
 function TextInput({ label, type }) {
   return (
-    <label className="">
-      <span className="text-md block focus:text-orange-400">{label}</span>
+    <label>
+      <span className="text-md block">{label}</span>
       <input
         type={type}
         placeholder="Enter here..."
