@@ -1,4 +1,5 @@
 import SelectInput from "../components/fields/SelectInput";
+import SingleSliderInput from "../components/fields/SingleSliderInput";
 import TextInput from "../components/fields/TextInput";
 import ToggleInput from "../components/fields/ToggleInput";
 import { moleculeItems } from "../constants/moleculeList";
@@ -17,6 +18,8 @@ function ExperimentalSetup() {
         leftOption={"Globar"}
         rightOption={"Tungsten"}
       />
+
+      <SingleSliderInput />
     </div>
   );
 }
