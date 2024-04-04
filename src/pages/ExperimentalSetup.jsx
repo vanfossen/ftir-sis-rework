@@ -1,5 +1,6 @@
 import SelectInput from "../components/fields/SelectInput";
 import TextInput from "../components/fields/TextInput";
+import ToggleInput from "../components/fields/ToggleInput";
 import { moleculeItems } from "../constants/moleculeList";
 
 function ExperimentalSetup() {
@@ -10,6 +11,12 @@ function ExperimentalSetup() {
       <TextInput label={"Partial Pressure (Bar)"} type={"text"} />
 
       <SelectInput label={"Molecule"} list={moleculeItems} />
+
+      <ToggleInput
+        label={"Source"}
+        leftOption={"Globar"}
+        rightOption={"Tungsten"}
+      />
     </div>
   );
 }
