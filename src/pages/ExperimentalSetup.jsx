@@ -6,7 +6,7 @@ import { moleculeItems } from "../constants/moleculeList";
 
 function ExperimentalSetup() {
   return (
-    <div className="flex grow flex-col items-center justify-start bg-slate-400">
+    <div className="flex grow flex-col items-center justify-start">
       <p>Experimental Setup</p>
 
       <TextInput label={"Partial Pressure (Bar)"} type={"text"} />
