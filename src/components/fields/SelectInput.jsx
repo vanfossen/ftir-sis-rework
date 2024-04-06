@@ -2,16 +2,24 @@ import PropTypes from "prop-types";
 
 function SelectInput({ label, list }) {
   return (
-    <label>
-      <span className="text-md block">{label}</span>
-      <select className="mt-1 w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-lg placeholder-slate-400 shadow-sm transition-all invalid:border-red-600 invalid:text-red-600 focus:border-orange-400 focus:outline-none focus:ring-1 focus:ring-orange-400 focus:invalid:border-red-600 focus:invalid:ring-pink-500">
+    <div className="relative m-1">
+      <select
+        id="selected_input"
+        className="peer block w-full cursor-pointer rounded-lg border border-gray-300 bg-white p-2.5 text-sm shadow-sm transition-all focus:border-blue-500"
+      >
         {list.map((item, i) => (
           <option key={i} value={Object.keys(item)}>
             {Object.values(item)}
           </option>
         ))}
       </select>
-    </label>
+      <label
+        htmlFor="selected_input"
+        className="absolute start-1 top-2 origin-[0] -translate-y-4 scale-75 select-none bg-white px-2 text-sm text-gray-500 transition-all peer-focus:text-blue-600"
+      >
+        {label}
+      </label>
+    </div>
   );
 }
 
