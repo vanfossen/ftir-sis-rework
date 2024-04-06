@@ -19,7 +19,7 @@ function ExperimentalSetup() {
         rightOption={"Tungsten"}
       />
 
-      <SingleSliderInput />
+      <SingleSliderInput label={"Number of Scans"} min={1} max={1000} />
     </div>
   );
 }
