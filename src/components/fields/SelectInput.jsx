@@ -5,7 +5,7 @@ function SelectInput({ label, list }) {
     <div className="relative m-1">
       <select
         id="selected_input"
-        className="peer block w-full cursor-pointer rounded-lg border border-gray-300 bg-white p-2.5 text-sm shadow-sm transition-all focus:border-blue-500"
+        className="peer block w-full cursor-pointer rounded-lg border border-gray-300 bg-white p-2.5 text-sm shadow-sm outline-none transition-all focus:border-blue-500"
       >
         {list.map((item, i) => (
           <option key={i} value={Object.keys(item)}>
