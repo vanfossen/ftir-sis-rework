@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 function Dialog({ isOpen, toggleClose, children }) {
   return (
     <div
-      className={`fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 py-32 ${
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70 py-32 ${
         isOpen
           ? "pointer-events-auto opacity-100"
           : "pointer-events-none opacity-0"
