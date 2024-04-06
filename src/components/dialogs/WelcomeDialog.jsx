@@ -43,7 +43,7 @@ function NewDialog({ isWelcome, toggleWelcome }) {
         <a
           href="https://github.com/vanfossen/ftir-sis-rework"
           target="_blank"
-          className="my-1 flex w-2/3 flex-row items-center justify-evenly rounded border-2 py-3 transition-all hover:border-orange-500"
+          className="my-1 flex w-2/3 flex-row items-center justify-evenly rounded-full border-2 py-3 transition-all hover:border-orange-500 hover:bg-gray-200"
         >
           <p>{`Check out our project on GitHub!`}</p>
 
