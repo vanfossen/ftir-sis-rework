@@ -55,15 +55,15 @@ function NewDialog({ isWelcome, toggleWelcome }) {
             />
           </svg>
         </a>
-        <div className="text-md pt-3">
+        <label className="mt-4 inline-flex cursor-pointer rounded-full border-2 p-1 px-2 transition-all hover:border-orange-500 hover:bg-gray-200">
           <input
             type="checkbox"
             checked={isChecked}
             onChange={handleChecked}
-            className="mx-3"
+            className="me-3"
           />
-          <label>Hide popup on reload/refresh?</label>
-        </div>
+          <p className="text-sm">Hide popup on reload/refresh?</p>
+        </label>
       </div>
     </Dialog>
   );
