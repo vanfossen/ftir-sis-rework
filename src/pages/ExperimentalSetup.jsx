@@ -1,8 +1,8 @@
-import SelectInput from "../components/fields/SelectInput";
-import SingleSliderInput from "../components/fields/SingleSliderInput";
-import TextInput from "../components/fields/TextInput";
-import ToggleInput from "../components/fields/ToggleInput";
-import { moleculeItems } from "../constants/moleculeList";
+import SelectInput from "../components/fields/SelectInput.jsx";
+import SingleSliderInput from "../components/fields/SingleSliderInput.jsx";
+import TextInput from "../components/fields/TextInput.jsx";
+import ToggleInput from "../components/fields/ToggleInput.jsx";
+import { moleculeItems } from "../constants/moleculeList.js";
 
 function ExperimentalSetup() {
   return (
