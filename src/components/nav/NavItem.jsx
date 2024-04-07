@@ -16,7 +16,7 @@ function NavItem({ item, isActive, handleDropdown, handleMenu, dialog }) {
 
       {/* submenu */}
       {isActive && (
-        <div className="left-0 m-1 flex w-full flex-col rounded bg-[#1e293b] p-1 sm:static xl:absolute">
+        <div className="left-0 z-10 m-1 flex w-full flex-col rounded bg-[#1e293b] p-1 sm:static xl:absolute">
           {item.submenu.map((subItem, index) => (
             <button
               key={index}
