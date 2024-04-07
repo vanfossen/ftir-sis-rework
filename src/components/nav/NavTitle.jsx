@@ -11,7 +11,7 @@ function NavTitle({ handleDropdown, toggleMenu }) {
           handleDropdown(null);
           toggleMenu();
         }}
-        className="rounded p-1 transition-all hover:bg-[#374151]"
+        className="rounded p-1 outline-none transition-all hover:bg-[#374151] focus-visible:ring-1 focus-visible:ring-blue-500"
       >
         <img src="/vite.svg" alt="Vite Logo" />
       </a>
@@ -22,7 +22,7 @@ function NavTitle({ handleDropdown, toggleMenu }) {
           handleDropdown(null);
           toggleMenu();
         }}
-        className="mx-3 rounded px-1 text-3xl transition-all hover:bg-[#374151]"
+        className="mx-3 rounded px-1 text-3xl outline-none transition-all hover:bg-[#374151] focus-visible:ring-1 focus-visible:ring-blue-500"
       >
         <span className="text-red-500">F</span>
         <span className="text-orange-500">T</span>
