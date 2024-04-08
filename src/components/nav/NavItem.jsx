@@ -7,7 +7,7 @@ function NavItem({ item, isActive, handleDropdown, handleMenu, dialog }) {
     <div className="relative px-5">
       {/* menu */}
       <button
-        className={`m-1 flex items-center rounded p-2 transition-all hover:bg-[#374151] ${isActive ? "bg-[#1e293b] text-orange-500" : "text-white"} `}
+        className={`m-1 flex items-center rounded p-2 outline-none transition-all hover:bg-[#374151] focus-visible:ring-1 focus-visible:ring-blue-500 ${isActive ? "bg-[#1e293b] text-orange-500" : "text-white"} `}
         onClick={() => handleDropdown()}
       >
         {item.label}
@@ -24,7 +24,7 @@ function NavItem({ item, isActive, handleDropdown, handleMenu, dialog }) {
                 handleDropdown();
                 handleMenu();
               }}
-              className="m-1 p-0"
+              className="m-1 p-0 outline-none transition-all focus-visible:ring-1 focus-visible:ring-blue-500"
             >
               {subItem.dialog ? (
                 <CustomAnchor
