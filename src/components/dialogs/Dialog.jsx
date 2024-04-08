@@ -13,6 +13,7 @@ function Dialog({ isOpen, toggleClose, children }) {
       <div className="mx-auto max-h-full max-w-xl overflow-x-hidden rounded-xl bg-white">
         <div className="flex items-center justify-end border-b border-gray-200 p-3">
           <button
+            tabIndex={isOpen ? 0 : -1}
             onClick={toggleClose}
             className="rounded transition-all hover:bg-gray-300"
           >

@@ -41,6 +41,7 @@ function NewDialog({ isWelcome, toggleWelcome }) {
           Please use the navigation bar above to explore the application!
         </p>
         <a
+          tabIndex={isWelcome ? 0 : -1}
           href="https://github.com/vanfossen/ftir-sis-rework"
           target="_blank"
           className="my-1 flex w-2/3 flex-row items-center justify-evenly rounded-full border-2 py-3 transition-all hover:border-orange-500 hover:bg-gray-200"
@@ -58,6 +59,7 @@ function NewDialog({ isWelcome, toggleWelcome }) {
         <label className="mt-4 inline-flex cursor-pointer rounded-full border-2 p-1 px-2 transition-all hover:border-orange-500 hover:bg-gray-200">
           <input
             type="checkbox"
+            tabIndex={isWelcome ? 0 : -1}
             checked={isChecked}
             onChange={handleChecked}
             className="me-3"

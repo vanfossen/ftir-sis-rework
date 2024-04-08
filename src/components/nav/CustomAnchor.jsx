@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 function CustomAnchor({ url, label, onClick }) {
   return (
     <a
+      tabIndex={-1}
       href={url}
       target="_blank"
       onClick={onClick}
