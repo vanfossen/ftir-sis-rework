@@ -20,7 +20,7 @@ const ToggleInput = ({ label, leftOption, rightOption }) => {
             onChange={handleCheckboxChange}
             className="peer sr-only"
           />
-          <div className="peer relative mx-3 h-6 w-11 cursor-pointer rounded-full bg-blue-400 after:absolute after:start-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-blue-500 after:transition-all after:content-[''] peer-checked:bg-pink-400 peer-checked:after:translate-x-full peer-checked:after:bg-pink-500 peer-focus:outline-none peer-focus:ring-1 peer-focus:ring-blue-600" />
+          <div className="peer relative mx-3 h-6 w-11 cursor-pointer rounded-full bg-blue-400 outline-none transition-all after:absolute after:start-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-blue-500 after:transition-all after:content-[''] peer-checked:bg-pink-400 peer-checked:after:translate-x-full peer-checked:after:bg-pink-500 peer-focus:outline-none peer-focus:ring-1 peer-focus:ring-blue-600" />
         </label>
         <p>{rightOption}</p>
       </div>
