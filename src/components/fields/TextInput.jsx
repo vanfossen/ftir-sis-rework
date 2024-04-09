@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
 
-function TextInput({ label, type }) {
+function TextInput({ label, min, max }) {
   return (
     <div className="relative m-1">
       <input
-        type={type}
+        min={min}
+        max={max}
         id="floating_outlined"
         className="peer block rounded-lg border px-2.5 pb-2.5 pt-4 text-base shadow-sm focus:border-blue-600 focus:outline-none focus:ring-0"
         placeholder=""
@@ -22,7 +23,8 @@ function TextInput({ label, type }) {
 // PropTypes declaration
 TextInput.propTypes = {
   label: PropTypes.string,
-  type: PropTypes.string,
+  min: PropTypes.number,
+  max: PropTypes.number,
 };
 
 export default TextInput;

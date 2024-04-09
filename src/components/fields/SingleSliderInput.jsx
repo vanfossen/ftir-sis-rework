@@ -4,18 +4,8 @@ import { useState } from "react";
 function SingleSliderInput({ label, min, max }) {
   const [sliderValue, setSliderValue] = useState(500);
 
-  const handleSliderChange = (event) => {
+  const handleChange = (event) => {
     setSliderValue(event.target.value);
-  };
-
-  const handleInputChange = (event) => {
-    let value = event.target.value;
-    if (value < 0) {
-      value = min;
-    } else if (value > max) {
-      value = max;
-    }
-    setSliderValue(value);
   };
 
   return (
@@ -29,14 +19,14 @@ function SingleSliderInput({ label, min, max }) {
           min={min}
           max={max}
           value={sliderValue}
-          onChange={handleSliderChange}
+          onChange={handleChange}
         />
         <input
           className="ms-2 w-12 rounded border text-center shadow-sm outline-none transition-all focus:border-blue-600 focus:outline-none focus:ring-0"
           min={min}
           max={max}
           value={sliderValue}
-          onChange={handleInputChange}
+          onChange={handleChange}
         />
       </div>
     </div>

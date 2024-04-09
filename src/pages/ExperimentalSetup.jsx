@@ -9,7 +9,7 @@ function ExperimentalSetup() {
     <div className="flex grow flex-col items-center justify-start">
       <p>Experimental Setup</p>
 
-      <TextInput label={"Partial Pressure (Bar)"} type={"text"} />
+      <TextInput label={"Partial Pressure (Bar)"} min={0.0001} max={10} />
 
       <SelectInput label={"Molecule"} list={moleculeItems} />
 
