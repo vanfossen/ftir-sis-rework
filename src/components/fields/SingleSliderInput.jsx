@@ -22,9 +22,12 @@ function SingleSliderInput({ label, min, max }) {
           onChange={handleChange}
         />
         <input
-          className="ms-2 w-12 rounded border text-center shadow-sm outline-none transition-all focus:border-blue-600 focus:outline-none focus:ring-0"
+          className="ms-2 w-16 rounded border text-center shadow-sm outline-none transition-all invalid:border-red-600 focus:border-blue-600 focus:outline-none focus:ring-0"
+          type="number"
+          step={1}
           min={min}
           max={max}
+          required
           value={sliderValue}
           onChange={handleChange}
         />

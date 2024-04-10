@@ -1,13 +1,25 @@
 import PropTypes from "prop-types";
+import { useState } from "react";
 
-function TextInput({ label, min, max }) {
+function TextInput({ label, min, max, step }) {
+  const [textValue, setTextValue] = useState(1);
+
+  const handleChange = (event) => {
+    setTextValue(event.target.value);
+  };
+
   return (
     <div className="relative m-1">
       <input
+        type="number"
+        step={step}
         min={min}
         max={max}
+        required
         id="floating_outlined"
-        className="peer block rounded-lg border px-2.5 pb-2.5 pt-4 text-base shadow-sm focus:border-blue-600 focus:outline-none focus:ring-0"
+        value={textValue}
+        onChange={handleChange}
+        className="peer block rounded-lg border px-2.5 pb-2.5 pt-4 text-base shadow-sm invalid:border-red-600 focus:border-blue-600 focus:outline-none focus:ring-0"
         placeholder=""
       />
       <label
@@ -25,6 +37,7 @@ TextInput.propTypes = {
   label: PropTypes.string,
   min: PropTypes.number,
   max: PropTypes.number,
+  step: PropTypes.number,
 };
 
 export default TextInput;
