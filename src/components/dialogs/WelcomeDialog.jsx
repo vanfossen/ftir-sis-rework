@@ -62,7 +62,7 @@ function NewDialog({ isWelcome, toggleWelcome }) {
             tabIndex={isWelcome ? 0 : -1}
             checked={isChecked}
             onChange={handleChecked}
-            className="me-3"
+            className="me-3 cursor-pointer"
           />
           <p className="text-sm">Hide popup on reload/refresh?</p>
         </label>
