@@ -6,7 +6,7 @@ import ToggleInput from "../components/fields/ToggleInput.jsx";
 import { moleculeItems } from "../constants/moleculeList.js";
 
 function ExperimentalSetup() {
-  const [formData, setFormData] = useState({ pressure: "1" });
+  const [formData, setFormData] = useState({ pressure: "1", molecule: "HCN" });
 
   return (
     <div className="flex grow flex-col items-center justify-start">
@@ -23,7 +23,14 @@ function ExperimentalSetup() {
         }}
       />
 
-      <SelectInput label={"Molecule"} list={moleculeItems} />
+      <SelectInput
+        label={"Molecule"}
+        value={formData.molecule}
+        list={moleculeItems}
+        onChange={(event) => {
+          setFormData({ ...formData, molecule: event.target.value });
+        }}
+      />
 
       <ToggleInput
         label={"Source"}

@@ -1,10 +1,12 @@
 import PropTypes from "prop-types";
 
-function SelectInput({ label, list }) {
+function SelectInput({ label, value, list, onChange }) {
   return (
     <div className="relative m-1">
       <select
         id="selected_input"
+        value={value}
+        onChange={onChange}
         className="peer block w-full cursor-pointer rounded-lg border border-gray-300 bg-white p-2.5 text-sm shadow-sm outline-none transition-all focus:border-blue-500"
       >
         {list.map((item, i) => (
@@ -26,7 +28,9 @@ function SelectInput({ label, list }) {
 // PropTypes declaration
 SelectInput.propTypes = {
   label: PropTypes.string,
+  value: PropTypes.string,
   list: PropTypes.array,
+  onChange: PropTypes.func,
 };
 
 export default SelectInput;
