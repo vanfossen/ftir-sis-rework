@@ -6,7 +6,11 @@ import ToggleInput from "../components/fields/ToggleInput.jsx";
 import { moleculeItems } from "../constants/moleculeList.js";
 
 function ExperimentalSetup() {
-  const [formData, setFormData] = useState({ pressure: "1", molecule: "HCN" });
+  const [formData, setFormData] = useState({
+    pressure: "1",
+    molecule: "HCN",
+    source: false,
+  });
 
   return (
     <div className="flex grow flex-col items-center justify-start">
@@ -34,8 +38,10 @@ function ExperimentalSetup() {
 
       <ToggleInput
         label={"Source"}
+        value={formData.source}
         leftOption={"Globar"}
         rightOption={"Tungsten"}
+        onChange={() => setFormData({ ...formData, source: !formData.source })}
       />
 
       <SingleSliderInput label={"Number of Scans"} min={1} max={1000} />
