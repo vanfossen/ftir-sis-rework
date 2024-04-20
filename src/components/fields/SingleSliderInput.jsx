@@ -1,13 +1,6 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
 
-function SingleSliderInput({ label, min, max }) {
-  const [sliderValue, setSliderValue] = useState(500);
-
-  const handleChange = (event) => {
-    setSliderValue(event.target.value);
-  };
-
+function SingleSliderInput({ label, value, min, max, onChange }) {
   return (
     <div className="m-3 flex flex-col">
       <label className="text-gray-500">{label}</label>
@@ -18,8 +11,8 @@ function SingleSliderInput({ label, min, max }) {
           className="cursor-pointer"
           min={min}
           max={max}
-          value={sliderValue}
-          onChange={handleChange}
+          value={value}
+          onChange={onChange}
         />
         <input
           className="ms-2 w-16 rounded border text-center shadow-sm outline-none transition-all invalid:border-red-600 focus:border-blue-600 focus:outline-none focus:ring-0"
@@ -28,8 +21,8 @@ function SingleSliderInput({ label, min, max }) {
           min={min}
           max={max}
           required
-          value={sliderValue}
-          onChange={handleChange}
+          value={value}
+          onChange={onChange}
         />
       </div>
     </div>
@@ -39,8 +32,10 @@ function SingleSliderInput({ label, min, max }) {
 // PropTypes declaration
 SingleSliderInput.propTypes = {
   label: PropTypes.string,
+  value: PropTypes.string,
   min: PropTypes.number,
   max: PropTypes.number,
+  onChange: PropTypes.func,
 };
 
 export default SingleSliderInput;

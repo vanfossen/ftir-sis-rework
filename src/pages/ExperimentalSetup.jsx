@@ -10,6 +10,7 @@ function ExperimentalSetup() {
     pressure: "1",
     molecule: "HCN",
     source: false,
+    scan: "500",
   });
 
   return (
@@ -44,7 +45,15 @@ function ExperimentalSetup() {
         onChange={() => setFormData({ ...formData, source: !formData.source })}
       />
 
-      <SingleSliderInput label={"Number of Scans"} min={1} max={1000} />
+      <SingleSliderInput
+        label={"Number of Scans"}
+        value={formData.scan}
+        min={1}
+        max={1000}
+        onChange={(event) => {
+          setFormData({ ...formData, scan: event.target.value });
+        }}
+      />
     </div>
   );
 }
