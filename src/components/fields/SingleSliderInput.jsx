@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 function SingleSliderInput({ label, value, min, max, onChange }) {
   return (
     <div className="m-3 flex flex-col">
-      <label className="text-gray-500">{label}</label>
+      <label className="select-none text-gray-500">{label}</label>
       <div className="inline-flex items-center justify-center outline-none">
         <input
           tabIndex={-1}
