@@ -1,4 +1,5 @@
 import { useState } from "react";
+import DualInputSlider from "../components/fields/DualSliderInput.jsx";
 import SelectInput from "../components/fields/SelectInput.jsx";
 import SingleSliderInput from "../components/fields/SingleSliderInput.jsx";
 import TextInput from "../components/fields/TextInput.jsx";
@@ -11,6 +12,8 @@ function ExperimentalSetup() {
     molecule: "HCN",
     source: false,
     scan: "500",
+    waveMin: "1700",
+    waveMax: "7000",
   });
 
   return (
@@ -52,6 +55,20 @@ function ExperimentalSetup() {
         max={1000}
         onChange={(event) => {
           setFormData({ ...formData, scan: event.target.value });
+        }}
+      />
+
+      <DualInputSlider
+        label={"Wavenumber range (cm⁻¹)"}
+        valueMin={formData.waveMin}
+        valueMax={formData.waveMax}
+        min={400}
+        max={12500}
+        onChangeMin={(event) => {
+          setFormData({ ...formData, waveMin: event.target.value });
+        }}
+        onChangeMax={(event) => {
+          setFormData({ ...formData, waveMax: event.target.value });
         }}
       />
     </div>
