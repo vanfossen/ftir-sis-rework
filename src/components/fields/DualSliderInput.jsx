@@ -1,54 +1,28 @@
+import Input from "@mui/joy/Input";
+import Slider from "@mui/joy/Slider";
 import PropTypes from "prop-types";
 
-function DualSliderInput({
-  label,
-  valueMin,
-  valueMax,
-  min,
-  max,
-  onChangeMin,
-  onChangeMax,
-}) {
+function DualSliderInput({ label, unit, value, min, max, onChange }) {
   return (
-    <div>
-      <label className="text-gray-500">{label}</label>
-      <div>
-        {/* <input
-          type="number"
-          value={valueMin}
+    <div className="flex flex-col">
+      <label className="select-none py-1 text-gray-500">
+        {label} {unit}
+      </label>
+
+      <div className="inline-flex">
+        <Input value={value[0]} className="mr-5 w-40" />
+        <Slider
+          getAriaLabel={() => {
+            label;
+          }}
+          value={value}
           min={min}
           max={max}
-          onChange={onChangeMin}
-          className="ms-2 inline w-20 rounded border text-center shadow-sm outline-none transition-all invalid:border-red-600 focus:border-blue-600 focus:outline-none focus:ring-0"
-        /> */}
-
-        <div className="relative">
-          <input
-            type="range"
-            value={valueMin}
-            min={min}
-            max={max}
-            onChange={onChangeMin}
-            className="pointer-events-auto absolute w-full bg-none"
-          />
-          <input
-            type="range"
-            value={valueMax}
-            min={min}
-            max={max}
-            onChange={onChangeMax}
-            className="pointer-events-auto absolute w-full bg-none"
-          />
-        </div>
-
-        {/* <input
-          type="number"
-          value={valueMax}
-          min={min}
-          max={max}
-          onChange={onChangeMax}
-          className="ms-2 inline w-20 rounded border text-center shadow-sm outline-none transition-all invalid:border-red-600 focus:border-blue-600 focus:outline-none focus:ring-0"
-        /> */}
+          onChange={onChange}
+          getAriaValueText={() => `${label}${unit}`}
+          xs={{ width: 200 }}
+        />
+        <Input value={value[1]} className="ml-5 w-40" />
       </div>
     </div>
   );
@@ -57,12 +31,11 @@ function DualSliderInput({
 // PropTypes declaration
 DualSliderInput.propTypes = {
   label: PropTypes.string,
-  valueMin: PropTypes.string,
-  valueMax: PropTypes.string,
+  unit: PropTypes.string,
+  value: PropTypes.array,
   min: PropTypes.number,
   max: PropTypes.number,
-  onChangeMin: PropTypes.func,
-  onChangeMax: PropTypes.func,
+  onChange: PropTypes.func,
 };
 
 export default DualSliderInput;

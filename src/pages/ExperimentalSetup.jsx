@@ -12,8 +12,7 @@ function ExperimentalSetup() {
     molecule: "HCN",
     source: false,
     scan: "500",
-    waveMin: "1700",
-    waveMax: "7000",
+    wave: [1700, 7000],
   });
 
   return (
@@ -59,16 +58,13 @@ function ExperimentalSetup() {
       />
 
       <DualInputSlider
-        label={"Wavenumber range (cm⁻¹)"}
-        valueMin={formData.waveMin}
-        valueMax={formData.waveMax}
+        label={"Wavenumber range"}
+        unit={"(cm⁻¹)"}
+        value={formData.wave}
         min={400}
         max={12500}
-        onChangeMin={(event) => {
-          setFormData({ ...formData, waveMin: event.target.value });
-        }}
-        onChangeMax={(event) => {
-          setFormData({ ...formData, waveMax: event.target.value });
+        onChange={(event, newValue) => {
+          setFormData({ ...formData, wave: newValue });
         }}
       />
     </div>
