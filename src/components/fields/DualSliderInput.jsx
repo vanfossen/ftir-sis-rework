@@ -46,11 +46,12 @@ function DualSliderInput({ label, min, max }) {
 
       <div className="inline-flex">
         <Input
+          type="number"
           value={lowerRange}
           error={lowerRange < min}
           onBlur={handleBlur}
           onChange={handleInputChangeMin}
-          className="mr-5 w-36"
+          className="mr-5 w-44"
         />
         <Slider
           getAriaLabel={() => {
@@ -62,11 +63,12 @@ function DualSliderInput({ label, min, max }) {
           onChange={handleSliderChange}
         />
         <Input
+          type="number"
           value={upperRange}
           error={upperRange > max}
           onBlur={handleBlur}
           onChange={handleInputChangeMax}
-          className="ml-5 w-36"
+          className="ml-5 w-44"
         />
       </div>
     </div>
