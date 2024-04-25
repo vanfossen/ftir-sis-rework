@@ -4,17 +4,12 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 
 function SingleSliderInput({ label, min, max }) {
-  const [scan, setScan] = useState(500);
+  const [value, setValue] = useState(64);
 
-  const handleSliderChange = (event, newValue) => {
-    setScan(newValue);
-  };
-
-  const handleInputChange = (event) => {
-    if (isNaN(event.target.value) || event.target.value === "") {
-      setScan([]);
-    } else {
-      setScan(parseInt(event.target.value));
+  const handleInput = (event) => {
+    if (/^$|^[1-9]\d*$/.test(event.target.value)) {
+      setValue(parseInt(event.target.value));
+      return;
     }
   };
 
@@ -25,17 +20,18 @@ function SingleSliderInput({ label, min, max }) {
         <Slider
           min={min}
           max={max}
-          value={scan}
-          onChange={handleSliderChange}
+          color={
+            value < min || value > max || isNaN(value) ? "danger" : "primary"
+          }
+          value={isNaN(value) ? [] : value}
+          onChange={handleInput}
+          sx={{ width: 200 }}
         />
         <Input
-          min={min}
-          max={max}
-          error={scan < min || scan > max}
-          value={scan}
-          type="number"
-          onChange={handleInputChange}
-          className="ml-5 w-40"
+          value={isNaN(value) ? "" : value}
+          error={value < min || value > max || isNaN(value)}
+          onChange={handleInput}
+          sx={{ width: 70, ml: 2 }}
         />
       </div>
     </div>

@@ -1,6 +1,6 @@
 function Instrument() {
   return (
-    <div className="flex grow items-center justify-center bg-green-500">
+    <div className="flex grow flex-col items-center justify-center bg-green-500">
       <p>Instrument</p>
     </div>
   );
