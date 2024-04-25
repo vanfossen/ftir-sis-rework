@@ -11,7 +11,7 @@ function ExperimentalSetup() {
     pressure: "1",
     molecule: "HCN",
     source: false,
-    scan: "500",
+    scan: 500,
     wave: [1700, 7000],
   });
 
@@ -47,15 +47,7 @@ function ExperimentalSetup() {
         onChange={() => setFormData({ ...formData, source: !formData.source })}
       />
 
-      <SingleSliderInput
-        label={"Number of Scans"}
-        value={formData.scan}
-        min={1}
-        max={1000}
-        onChange={(event) => {
-          setFormData({ ...formData, scan: event.target.value });
-        }}
-      />
+      <SingleSliderInput label={"Number of Scans"} min={1} max={1000} />
 
       <DualInputSlider
         label={"Wavenumber range (cm⁻¹)"}
