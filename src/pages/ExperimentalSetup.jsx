@@ -58,14 +58,9 @@ function ExperimentalSetup() {
       />
 
       <DualInputSlider
-        label={"Wavenumber range"}
-        unit={"(cm⁻¹)"}
-        value={formData.wave}
+        label={"Wavenumber range (cm⁻¹)"}
         min={400}
         max={12500}
-        onChange={(event, newValue) => {
-          setFormData({ ...formData, wave: newValue });
-        }}
       />
     </div>
   );
