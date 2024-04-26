@@ -1,7 +1,6 @@
-import Input from "@mui/joy/Input";
-import Slider from "@mui/joy/Slider";
+import { Input, Slider } from "@mui/joy";
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function DualSliderInput({ label, min, max }) {
   const [lowerRange, setLowerRange] = useState(1700);
@@ -12,23 +11,17 @@ function DualSliderInput({ label, min, max }) {
     setUpperRange(newValue[1]);
   };
 
-  const handleInputChangeMin = (event) => {
-    if (isNaN(event.target.value) || event.target.value === " ") {
-      setLowerRange("");
-    } else {
-      setLowerRange(
-        event.target.value === "" ? "" : parseInt(event.target.value),
-      );
+  const handleInputMin = (event) => {
+    if (/^$|^[1-9]\d*$/.test(event.target.value)) {
+      setLowerRange(parseInt(event.target.value));
+      return;
     }
   };
 
-  const handleInputChangeMax = (event) => {
-    if (isNaN(event.target.value) || event.target.value === " ") {
-      setUpperRange("");
-    } else {
-      setUpperRange(
-        event.target.value === "" ? "" : parseInt(event.target.value),
-      );
+  const handleInputMax = (event) => {
+    if (/^$|^[1-9]\d*$/.test(event.target.value)) {
+      setUpperRange(parseInt(event.target.value));
+      return;
     }
   };
 
@@ -40,35 +33,55 @@ function DualSliderInput({ label, min, max }) {
     }
   };
 
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    if (
+      lowerRange < min ||
+      lowerRange > max ||
+      isNaN(lowerRange) ||
+      upperRange < min ||
+      upperRange > max ||
+      isNaN(upperRange)
+    ) {
+      setError(true);
+    } else {
+      setError(false);
+    }
+  }, [lowerRange, upperRange, min, max, error]);
+
   return (
     <div className="flex flex-col">
       <label className="select-none py-1 text-gray-500">{label}</label>
 
       <div className="inline-flex">
         <Input
-          type="number"
-          value={lowerRange}
-          error={lowerRange < min}
+          value={isNaN(lowerRange) ? "" : lowerRange}
+          error={error}
+          onChange={handleInputMin}
           onBlur={handleBlur}
-          onChange={handleInputChangeMin}
-          className="mr-5 w-44"
+          sx={{ width: 150, mr: 2 }}
         />
         <Slider
           getAriaLabel={() => {
             label;
           }}
-          value={[lowerRange, upperRange]}
+          value={
+            isNaN(lowerRange) || isNaN(upperRange)
+              ? []
+              : [lowerRange, upperRange]
+          }
+          color={error ? "danger" : "primary"}
           min={min}
           max={max}
           onChange={handleSliderChange}
         />
         <Input
-          type="number"
-          value={upperRange}
-          error={upperRange > max}
+          value={isNaN(upperRange) ? "" : upperRange}
+          error={error}
+          onChange={handleInputMax}
           onBlur={handleBlur}
-          onChange={handleInputChangeMax}
-          className="ml-5 w-44"
+          sx={{ width: 150, ml: 2 }}
         />
       </div>
     </div>
